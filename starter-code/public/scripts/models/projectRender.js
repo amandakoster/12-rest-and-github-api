@@ -17,7 +17,7 @@ function Project(projectData) {
 
 Project.prototype.toHtml = function() {
   let template = $('#project-template').html();
-  let templateRender = Handlebars.complie(template);
+  let templateRender = Handlebars.compile(template);
   return templateRender(this);
 };
 
