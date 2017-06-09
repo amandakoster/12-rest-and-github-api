@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Lab 12</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://use.fontawesome.com/20877e6602.js"></script>
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
@@ -11,24 +12,27 @@
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="vendor/styles/railscasts.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-    <script id="article-template" type="text/x-handlebars-template">
-      <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
-        <header>
-          <h1>{{title}}</h1>
-          <div class="byline">
-            By <address><a href="{{authorUrl}}">{{author}}</a></address>
-            {{publishStatus}}
-          </div>
-        </header>
-        <section class="article-body">{{{body}}}</section>
-        <a href="#" class="read-on">Read on &rarr;</a>
-      </article>
-    </script>
-    <!-- Done: We have a new Handlebars template! Help fill in a few expressions: -->
-    <script id="repo-template" type="text/x-handlebars-template">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+<!-- project template -->
+    <script id = "project-template" type="text/x-handlebars-template">
+      <div id="project-div">
+        <img src="{{imageUrl}}" class="project-image"/>
+          <img src="{{html_url}}" target="_blank">
+          <p id="title">{{title}}</p>
+          <p id="role">{{role}}</p>
+          <p id="category">{{category}}</p>
+          <p id="projectUrl">{{projectUrl}}</p>
+          <p id="overview">{{overview}}</p>
+          <p id="challenge">{{challenge}}</p>
+          <p id="approach">{{approach}}</p>
+          <p id="process">{{process}}</p>
+          <p id="responsibilities">{{responsibilities}}</p>
+          <p id="results">{{results}}</p>
+<!-- repro template -->
+<script id="repo-template" type="text/x-handlebars-template">
+    <div id="#repo-div">
       <li>
-        <a href="{{html_url}}" target="_blank">
-          <h3>{{name}}</h3>
+        <h3>{{name}}</h3>
         </a>
         <p>Description: {{description}}</p>
         <p>Language: {{language}}</p>
@@ -53,34 +57,18 @@
         <ul>
           <li class="tab" data-content="articles"><a href="/" class="icon-home"> Home</a></li>
           <li class="tab" data-content="about"><a href="/about" class="icon-address-book"> About</a></li>
-          <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
-          <li><a href="http://github.com/brookr" target="_blank" class="icon-github"> GitHub</a></li>
+          <li><a href="#projects" id="project-button" class="fa-camera">Projects</a></li>
+            <li><a href="http://twitter.com/amandakoster" target="_blank" class="icon-twitter3"> Twitter</a></li>
+          <li><a href="http://github.com/amandakoster" target="_blank" class="icon-github"> GitHub</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <section id="articles" class="tab-content">
-        <div>
-          <ul id="filters">
-            <li>
-              <select id="author-filter">
-                <option value="">-- Filter by Authors --</option>
-              </select>
-            </li>
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section id="about" class="tab-content">
-        <header>
-          Welcome to my Blog
-        </header>
-        <section>
-          <h1>Some of my intrests:</h1>
+        <h1>
+        Amanda Koster : I make Visual Sence of Mental Spaghetti
+      </h1>
+        <section id="projects">
+          <h2>Visual Content Projects:</h2>
           <ul>
             <li>Coding</li>
             <li>Sharing what I've learned</li>
@@ -101,7 +89,9 @@
     <script src="/scripts/models/githubToken.js"></script>
     <!-- Script files for the Article resource: -->
     <script src="/scripts/models/article.js"></script>
+    <script src="/scripts/models/projectRender.js"></script>
     <script src="/scripts/views/articleView.js"></script>
+        <script src="/scripts/views/projectView.js"></script>
     <script src="/scripts/controllers/articleController.js"></script>
     <!--Done: Be sure to include any new script files: -->
     <script src="/scripts/models/repo.js"></script>
